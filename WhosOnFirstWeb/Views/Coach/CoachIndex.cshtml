@@ -1,0 +1,77 @@
+﻿@model WhosOnFirstWeb.Models.CoachModel
+@{
+    ViewBag.Title = "CoachIndex";
+}
+
+<div class="form-group" , style="float: left; margin-left: 10px">
+    <h1>Welcome Coach @Model.UserModel.LastName!</h1>
+</div>
+<div class="form-group" , style="float: left; margin-left: 10px">
+    <button class="btn btn-link btn-sm" style="margin-bottom: 5px;" onclick="location.href = '@Url.Action("EditUserProfile", "Home", new {Id = @Model.UserModel.PersonId})'">Edit Profile</button>
+</div>
+<div style="clear: both;"></div>
+<br />
+
+@if (!Model.UserModel.IsCoach || !Model.UserModel.IsValid)
+{
+    <label>You are not an authorized user.</label>
+        <p>You will be redirected in 3 seconds</p>
+        <script type="text/javascript">
+            var timer = setTimeout(function() {
+                window.location.href = '@Url.Action("Index", "Home")';
+            },3000);
+        </script>
+}
+else
+{
+    <div class="form-group" , style="float: left;">
+
+        <form action="~/Coach/ViewAllTeams">
+            <button class="btn btn-primary" style="margin-bottom: 5px;">View Teams</button>
+        </form>
+        @{
+            if (Model.UserModel.TeamId == 0)
+            {
+
+                using (Html.BeginForm("AddTeam", "Coach", FormMethod.Post))
+                {
+                    @Html.Label("Team Name")
+                    @Html.TextBoxFor(m => m.TeamName, new
+                   {
+                       @class = "form-control",
+                       autofocus = "autofocus",
+                       placeholder = "Don't use prefixes like THE"
+                   })
+                    <button id="addTeamButton" class="btn btn-success" style="margin-top: 10px">Add a Team</button>
+                }
+            }
+            else
+            {
+                <form action="~/Coach/RemoveTeam">
+                    <button class="btn btn-danger" style="margin-bottom: 5px;" >Remove Team</button>
+                </form>
+            }
+        }
+
+    </div>
+
+
+        <div class="form-group" , style="float: left; margin-left: 10px">
+            <div>
+                <button class="btn btn-primary" style="margin-bottom: 5px;" onclick="location.href = '@Url.Action("ViewTeamPlayers", "Coach", new {Id = @Model.UserModel.TeamId})'">View Players</button>
+            </div>
+
+            <form action="~/Coach/ViewAvailablePeople">
+                <button class="btn btn-success" style="margin-bottom: 5px;">Available Players</button>
+            </form>
+
+            @*<form action="~/Home/Index">
+                <button class="btn btn-danger" style="margin-bottom: 5px;" onclick="location.href = '@Url.Action("RemovePlayerFromTeam", "Coach", new {Id = @Model.UserModel.PersonId})'">Remove a Player</button>
+            </form>*@
+        </div>
+
+        <div style="clear: both;"></div>
+
+            }
+
+

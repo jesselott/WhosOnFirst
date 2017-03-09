@@ -1,0 +1,53 @@
+﻿@model WhosOnFirstWeb.Models.PlayersModel
+@{
+    ViewBag.Title = "EditPlayer";
+}
+<h2>Edit User</h2>
+<br />
+<ul>
+    <li>
+        @using (Html.BeginForm("EditPlayer", "Coach", FormMethod.Post))
+        {
+            @Html.HiddenFor(m => m.PersonId, new { @Value = Model.PersonId })
+            @Html.HiddenFor(m => m.PlayerId, new { @Value = Model.PlayerId })
+            @Html.HiddenFor(m => m.IsPlayer, new { @Value = Model.IsPlayer })
+            @Html.HiddenFor(m => m.IsCoach, new { @Value = Model.IsCoach })
+            @Html.HiddenFor(m => m.IsAdmin, new { @Value = Model.IsAdmin })
+            @Html.HiddenFor(m => m.IsValid, new { @Value = Model.IsValid })
+            @Html.HiddenFor(m => m.IsPitcher, new { @Value = Model.IsPitcher })
+            @Html.HiddenFor(m => m.TeamId, new { @Value = Model.TeamId })
+
+            <div class="form-group">
+                @Html.Label("First Name")
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", autofocus = "autofocus", @Value = @Model.FirstName })
+            </div>
+            <div class="form-group">
+                @Html.Label("Last Name")
+                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", autofocus = "autofocus", @Value = @Model.LastName })
+            </div>
+            <div class="form-group">
+                @Html.Label("E-mail Address")
+                @Html.TextBoxFor(m => m.EMail, new { @class = "form-control", autofocus = "autofocus", @Value = @Model.EMail })
+            </div>
+            <div class="form-group">
+                @Html.Label("Phone Number")
+                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", autofocus = "autofocus", @Value = @Model.PhoneNumber })
+            </div>
+            <div class="form-group">
+                @Html.Label("Position Requested")
+                @Html.TextBoxFor(m => m.PositionRequested, new { @class = "form-control", autofocus = "autofocus", @Value = @Model.PositionRequested })
+            </div>
+            <div class="form-group">
+                @Html.Label("Team Requested")
+                @Html.TextBoxFor(m => m.TeamRequested, new { @class = "form-control", autofocus = "autofocus", @Value = @Model.TeamRequested })
+            </div>
+            <div class="form-group">
+                @Html.Label("Note")
+                @Html.TextAreaFor(m => m.Note, new { @class = "form-control", autofocus = "autofocus", @Value = @Model.Note, rows = "5", cols = "20" })
+            </div>
+
+            <br />
+            <input type="submit" class="btn btn-primary" name="Submit" />
+        }
+    </li>
+</ul>

@@ -1,0 +1,54 @@
+﻿@model WhosOnFirstWeb.Models.RegisterUserModel
+@{
+    ViewBag.Title = "RegisterUser";
+}
+
+@{
+    if (ViewBag.Warning != "")
+    {
+        <label style="color: red">Warning!...@ViewBag.Warning</label>
+    }
+}
+
+<ul>
+    <li>
+        @using (Html.BeginForm("RegisterUser", "Home", FormMethod.Post))
+        {
+
+            <div class="form-group">
+                @Html.Label("First Name")
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", autofocus = "autofocus" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Last Name")
+                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", autofocus = "autofocus" })
+            </div>
+            <div class="form-group">
+                @Html.Label("E-mail Address")
+                @Html.TextBoxFor(m => m.EMail, new { @class = "form-control", autofocus = "autofocus" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Phone Number")
+                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", autofocus = "autofocus" })
+            </div>
+            <div class="form-group">
+                @Html.Label("User Name")
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", autofocus = "autofocus" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Password")
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", autofocus = "autofocus" })
+            </div>
+            <div class="form-group">
+                @Html.RadioButtonFor(m => m.UserRole, "Coach")<span>Coach</span>
+                @Html.RadioButtonFor(m => m.UserRole, "Player")<span>Player</span>
+            </div>
+            <br />
+            <input type="submit" class="btn btn-primary" name="Submit" />
+        }
+
+
+
+    </li>
+</ul>
+

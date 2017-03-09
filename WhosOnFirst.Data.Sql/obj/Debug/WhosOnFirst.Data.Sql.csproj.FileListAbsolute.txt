@@ -1,0 +1,5 @@
+C:\Users\texas\Documents\Visual Studio 2015\Projects\WhosOnFirst\WhosOnFirst.Data.Sql\bin\Debug\WhosOnFirst.Data.Sql.dll
+C:\Users\texas\Documents\Visual Studio 2015\Projects\WhosOnFirst\WhosOnFirst.Data.Sql\bin\Debug\WhosOnFirst.Data.Sql.pdb
+C:\Users\texas\Documents\Visual Studio 2015\Projects\WhosOnFirst\WhosOnFirst.Data.Sql\obj\Debug\WhosOnFirst.Data.Sql.csprojResolveAssemblyReference.cache
+C:\Users\texas\Documents\Visual Studio 2015\Projects\WhosOnFirst\WhosOnFirst.Data.Sql\obj\Debug\WhosOnFirst.Data.Sql.dll
+C:\Users\texas\Documents\Visual Studio 2015\Projects\WhosOnFirst\WhosOnFirst.Data.Sql\obj\Debug\WhosOnFirst.Data.Sql.pdb

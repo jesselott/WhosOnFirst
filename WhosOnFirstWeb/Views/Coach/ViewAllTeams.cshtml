@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "ViewAllTeams";
+}
+
+<h1>Team List</h1>
+<br />
+<div>
+    @foreach (var teams in Model)
+    {
+        <div class="form-group" , style="float: left;">
+            <div>
+                <label>@teams.TeamName</label>
+            </div>
+        </div>
+        <div class="form-group" , style="float: left;">
+            @if (ViewBag.TeamStatus == 0)
+            {
+                <button class="btn btn-primary btn-sm" style="margin-left: 20px" onclick="location.href='@Url.Action("CoachTeam","Coach", new {Id = @teams.TeamsId})'">Coach Team</button>
+            }
+            else if (teams.TeamsId == ViewBag.TeamStatus)
+            {
+                <form action="~/Coach/LeaveTeam">
+                    <button class="btn btn-danger btn-sm" style="margin-left: 20px">Leave Team</button>
+                </form>
+            }
+        </div>
+        <div style="clear: both;"></div>
+    }
+    <br />
+</div>
+<form action="~/Coach/CoachIndex">
+    <button class="btn btn-success">Back</button>
+</form>

@@ -1,0 +1,51 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+li {
+    list-style-type: none
+}
+
+
+/*bootstrap overrides*/
+
+html > body .navbar-inverse {
+    /*background: blue; /* For browsers that do not support gradients */
+    /*background: -webkit-linear-gradient(left, blue , red); /* For Safari 5.1 to 6.0 */
+    /*background: -o-linear-gradient(right, blue,red); /* For Opera 11.1 to 12.0 */
+    /*background: -moz-linear-gradient(right, blue, red; /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, blue , red); /* Standard syntax */
+    /*background-color: blue;*/
+    border-style: none;
+}
+
+html > body .navbar-inverse .navbar-brand {
+    /*font-weight: bold;*/
+    color: white;
+    font-size: 24pt;
+    font-family: 'Sigmar One', cursive;
+}
+
+/*.button-container form,
+.button-container form div {
+    display: inline;
+}
+
+.button-container button {
+    display: inline;
+    vertical-align: middle;
+}*/

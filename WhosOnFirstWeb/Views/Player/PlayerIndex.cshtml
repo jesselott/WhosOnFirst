@@ -1,0 +1,29 @@
+﻿@model WhosOnFirstWeb.Models.PlayersModel
+@{
+    ViewBag.Title = "PlayerIndex";
+}
+
+<div class="form-group">
+    <h1>Welcome @Model.UserModel.LastName!</h1>
+</div>
+<br/>
+<div class="form-group">
+    <div>
+        <label style="font-size: 20px">@Model.FirstName @Model.LastName</label>
+        <label>&nbsp;&nbsp;Phone Number:  @Model.PhoneNumber</label>
+        <label>&nbsp;&nbsp;e-mail:  @Model.EMail</label>
+        <label>&nbsp;&nbsp;Jersey Number:  @Model.JerseyNumber</label>
+    </div>
+    <div>
+        <label>Position Requested:  @Model.PositionRequested</label>
+        <label>&nbsp;&nbsp;Team Requested:  @Model.TeamRequested</label>
+    </div>
+    <div>
+
+        <label>Note:  @Model.Note</label>
+    </div>
+</div>
+<div class="form-group">
+    <button class="btn btn-primary btn-sm" style="margin-left: 20px" onclick="location.href='@Url.Action("EditPlayer","Player")'">Edit</button>
+    <button class="btn btn-danger btn-sm" style="margin-left: 20px" onclick="location.href='@Url.Action("ViewTeamPlayers","Player", new {Id = @Model.TeamId})'">View Team</button>
+</div>

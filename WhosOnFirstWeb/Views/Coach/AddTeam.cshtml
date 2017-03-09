@@ -1,0 +1,15 @@
+﻿@model WhosOnFirstWeb.Models.CoachModel
+@{
+    ViewBag.Title = "AddTeam";
+}
+
+<h2>Team Successfully Added</h2><br/>
+<h2>You are now the coach of @Model.TeamName</h2><br/>
+<p>You will be redirected in 3 seconds</p>
+<script>
+        var timer = setTimeout(function() {
+            window.location.href = '@Url.Action("CoachIndex","Coach")';
+            },
+            3000);
+</script>
+

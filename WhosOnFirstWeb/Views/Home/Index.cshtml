@@ -1,0 +1,52 @@
+﻿@model WhosOnFirstWeb.Models.LoginRequestModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Welcome!</h1>
+<p>(We all have to start somewhere)</p>
+<p>
+    This is a baseball team management application intended to keep you up to date
+    with your team's stats and to let you manage the people on the team.  Hopefully
+    your team can make it past Who, all the way rounding I Don't Know and straight
+    in to Today!
+</p>
+@{
+    var whosOnFirstRef = @"https://en.wikipedia.org/wiki/Who's_on_First%3F";
+}
+
+<a href=@whosOnFirstRef target="_blank">(ref. Abbot and Costello's Who's on First?)</a>
+<br/>
+<br/>
+
+@{
+    if (ViewBag.Warning != "")
+    {
+        <label style="color: red">Warning!...@ViewBag.Warning</label>
+    }
+}
+
+<ul class="login">
+    <li>
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                @Html.Label("User Name")
+                @Html.TextBoxFor(m => m.userName, new { @class = "form-control", autofocus = "autofocus" })
+            </div>
+            <div>
+                @Html.Label("Password")
+                @Html.PasswordFor(m => m.password, new { @class = "form-control" })
+            </div>
+            <br />
+            <button class="btn btn-primary" style="float: left; margin-right: 10px;">Go</button>
+        }
+        <form action="~/Home/RegisterUser">
+            <button class="btn btn-default">Register</button>
+        </form>
+    </li>
+</ul>
+
+
+

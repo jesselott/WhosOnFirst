@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "ViewTeamPlayers";
+}
+
+<h1>Players on team</h1>
+<br />
+<div>
+    @foreach (var player in Model)
+    {
+        <div class="form-group" , style="float: left;">
+            <div>
+                <label style="font-size: 20px">@player.FirstName @player.LastName</label>
+                <label>&nbsp;&nbsp;Phone Number:  @player.PhoneNumber</label>
+                <label>&nbsp;&nbsp;e-mail:  @player.EMail</label>
+                <label>&nbsp;&nbsp;Jersey Number:  @player.JerseyNumber</label>
+            </div>
+            <div>
+                <label>Position Requested:  @player.PositionRequested</label>
+                <label>&nbsp;&nbsp;Team Requested:  @player.TeamRequested</label>
+            </div>
+            <div>
+
+                <label>Note:  @player.Note</label>
+            </div>
+        </div>
+        <div class="form-group" , style="float: left;">
+            <button class="btn btn-primary btn-sm" style="margin-left: 20px" onclick="location.href='@Url.Action("EditPlayer","Coach", new {Id = @player.PersonId})'">Edit</button>
+            <button class="btn btn-danger btn-sm" style="margin-left: 20px" onclick="location.href='@Url.Action("RemovePlayerFromTeam","Coach", new {Id = @player.PlayerId})'">Remove</button>
+        </div>
+        <div style="clear: both;"></div>
+    }
+</div>
+<div style="clear: both;"></div>
+<br />
+
+<form action="~/Coach/CoachIndex">
+    <button class="btn btn-primary">Back</button>
+</form>
